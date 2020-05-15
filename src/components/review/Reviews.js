@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchReview } from "../baseOfRequest/BaseOfRequest";
+import { fetchReview } from "../Server/Server";
 
 class Reviews extends Component {
   state = {

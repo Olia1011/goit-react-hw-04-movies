@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchCast } from "../baseOfRequest/BaseOfRequest";
+import { fetchCast } from "../Server/Server";
 import style from "./cast.module.css";
 
 class Cast extends Component {

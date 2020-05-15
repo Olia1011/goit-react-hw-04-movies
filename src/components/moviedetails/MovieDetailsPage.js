@@ -1,13 +1,13 @@
 import React, { Component, lazy, Suspense } from "react";
 import { Route, NavLink } from "react-router-dom";
-import { fetchMovieInfo } from "../baseOfRequest/BaseOfRequest";
+import { fetchMovieInfo } from "../Server/Server";
 import style from "./movie.module.css";
 
 const AsyncCast = lazy(() =>
-  import("../cast/Cast")
+  import("../Cast/Cast")
 );
 const AsyncReviews = lazy(() =>
-  import("../review/Reviews")
+  import("../Review/Reviews")
 );
 
 export class MovieDetailsPage extends Component {

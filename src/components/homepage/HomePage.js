@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { fetchTrendMovies } from "../baseOfRequest/BaseOfRequest";
-import FilmList from "../filmList/FilmList";
+import { fetchTrendMovies } from "../Server/Server";
+import FilmList from "../FilmList/FilmList";
 
 export class HomePage extends Component {
   state = {

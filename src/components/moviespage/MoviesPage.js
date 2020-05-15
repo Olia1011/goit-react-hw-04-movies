@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import FilmList from "../filmList/FilmList";
-import { fetchSearchMovies } from "../baseOfRequest/BaseOfRequest";
+import FilmList from "../FilmList/FilmList";
+import { fetchSearchMovies } from "../Server/Server";
 import queryString from "query-string";
 
 export class MoviesPage extends Component {

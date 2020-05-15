@@ -3,14 +3,14 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import style from "./app.module.css";
 
 const AsyncMoviesPage = lazy(() =>
-  import("../moviespage/MoviesPage" )
+  import("../Moviespage/MoviesPage" )
 );
 const AsyncMovieDetailsPage = lazy(() =>
   import(
-    "../moviedetails/MovieDetailsPage")
+    "../Moviedetails/MovieDetailsPage")
 );
 const AsyncHomePage = lazy(() =>
-  import("../homepage/HomePage")
+  import("../Homepage/HomePage")
 );
 
 export default class App extends Component {
