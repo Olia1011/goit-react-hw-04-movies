@@ -5,7 +5,7 @@ import queryString from "query-string";
 
 export class MoviesPage extends Component {
   state = {
-    searchWord: "",
+    search: "",
     searchResult: "",
   };
   componentDidMount() {
@@ -16,21 +16,20 @@ export class MoviesPage extends Component {
       fetchSearchMovies(query).then((res) =>
         this.setState({ searchResult: res })
       );
-      this.setState({ searchWord: query });
+      this.setState({ search: query });
     }
   }
   handleChange = (ev) => {
-    this.setState({ searchWord: ev.target.value });
+    this.setState({ search: ev.target.value });
   };
   handleSubmit = (ev) => {
     ev.preventDefault();
-    fetchSearchMovies(this.state.searchWord).then((res) =>
+    fetchSearchMovies(this.state.search).then((res) =>
       this.setState({ searchResult: res })
     );
 
-    this.props.history.push({
-      ...this.props.location,
-      search: `query=${this.state.searchWord}`,
+    this.props.history.push({...this.props.location,
+      search: `query=${this.state.search}`,
     });
   };
 
@@ -40,7 +39,7 @@ export class MoviesPage extends Component {
         <form>
           <input
             type="text"
-            value={this.state.searchWord}
+            value={this.state.search}
             onChange={this.handleChange}
           />
           <button type="submit" onClick={this.handleSubmit}>

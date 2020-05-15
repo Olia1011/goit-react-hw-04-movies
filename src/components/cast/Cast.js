@@ -17,17 +17,17 @@ class Cast extends Component {
     return (
       <ul className={style.castList}>
         {this.state.castData &&
-          this.state.castData.map((el, idx) => (
-            <li key={idx} className={style.castList__item}>
+          this.state.castData.map((item, id) => (
+            <li key={id} className={style.Actors}>
               <div>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500/${el.profile_path}`}
-                  alt={el.name}
+                  src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}
+                  alt={item.name}
                   style={image}
                 ></img>
               </div>
-              <p>{el.name}</p>
-              <p>Character:{el.character}</p>
+              <p>{item.name}</p>
+              <p>Character:{item.character}</p>
             </li>
           ))}
       </ul>
