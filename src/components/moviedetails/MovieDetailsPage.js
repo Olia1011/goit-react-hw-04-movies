@@ -12,11 +12,13 @@ const AsyncReviews = lazy(() =>
 
 export class MovieDetailsPage extends Component {
   state = {
-    movieDetails: "",
+    movie: "",
+    
+    
   };
   componentDidMount() {
     fetchMovieInfo(this.props.match.params.movieId).then((res) =>
-      this.setState({ movieDetails: res })
+      this.setState({ movie: res })
     );
   }
   handleGoBack = () => {
@@ -37,7 +39,7 @@ export class MovieDetailsPage extends Component {
       genres,
       release_date,
       vote_average,
-    } = this.state.movieDetails;
+    } = this.state.movie;
 
     return (
       <div>
@@ -48,7 +50,7 @@ export class MovieDetailsPage extends Component {
         >
           Go back
         </button>
-        {this.state.movieDetails && (
+        {this.state.movie && (
           <div>
             <div className={style.filmInfo}>
               <img
@@ -58,7 +60,7 @@ export class MovieDetailsPage extends Component {
                 }
                 alt={original_title}
               />
-              <div className={style.filmInfo_text}>
+              <div className={style.film_text}>
                 <h1>
                   {title || original_title} ({parseInt(release_date)})
                 </h1>
@@ -68,26 +70,26 @@ export class MovieDetailsPage extends Component {
                 <h3>Genres</h3>
 
                 {genres &&
-                  genres.map((el, idx) => <span key={idx}> {el.name}</span>)}
+                  genres.map((item, id) => <span key={id}> {item.name}</span>)}
               </div>
             </div>
 
             <h3>Additional information</h3>
             <ul>
               <li>
-                <NavLink to={`${this.props.match.url}/cast`}>Cast</NavLink>
+                <NavLink to={`${this.props.match.url}/Cast`}>Cast</NavLink>
               </li>
               <li>
-                <NavLink to={`${this.props.match.url}/review`}>Review</NavLink>
+                <NavLink to={`${this.props.match.url}/Review`}>Review</NavLink>
               </li>
             </ul>
             <Suspense fallback={<div>Loading...</div>}>
               <Route
-                path={`${this.props.match.path}/cast`}
+                path={`${this.props.match.path}/Cast`}
                 component={AsyncCast}
               ></Route>
               <Route
-                path={`${this.props.match.path}/review`}
+                path={`${this.props.match.path}/Review`}
                 component={AsyncReviews}
               ></Route>
             </Suspense>

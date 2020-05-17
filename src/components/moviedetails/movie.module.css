@@ -6,6 +6,6 @@
 .filmInfo {
   display: flex;
 }
-.filmInfo_text {
+.film_text {
   margin-left: 20px;
 }
