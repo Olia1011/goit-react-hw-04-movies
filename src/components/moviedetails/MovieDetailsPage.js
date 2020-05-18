@@ -13,24 +13,29 @@ const AsyncReviews = lazy(() =>
 export class MovieDetailsPage extends Component {
   state = {
     movie: "",
-    
-    
+    from: "",
+    search: "",
+  
   };
+
   componentDidMount() {
+    console.log(this.props);
     fetchMovieInfo(this.props.match.params.movieId).then((res) =>
-      this.setState({ movie: res })
+      this.setState({ movie: res, from: this.props.location.state.from.pathname, search: this.props.location.state.from.search})
     );
   }
+
   handleGoBack = () => {
     const { history, location } = this.props;
-    if (location.state) {
-      return history.push(location.state.from);
+    if (this.state.search) {
+      return history.push({pathname: this.state.from, search:(this.state.search).slice(1)});
     } else {
       history.push("/");
     }
   };
 
-  render() {
+
+ render() {
     const {
       poster_path,
       original_title,
@@ -99,5 +104,6 @@ export class MovieDetailsPage extends Component {
     );
   }
 }
+
 
 export default MovieDetailsPage;

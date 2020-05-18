@@ -4,15 +4,15 @@ const FilmList = ({ list, location }) => {
   return (
     <ul>
       {list &&
-        list.map(elem => (
-          <li key={elem.id}>
+        list.map(item => (
+          <li key={item.id}>
             <Link
               to={{
-                pathname: `/movie/${elem.id}`,
+                pathname: `/movie/${item.id}`,
                 state: { from: location }
               }}
             >
-              {elem.title || elem.original_title || elem.original_name}
+              {item.title || item.original_title || item.original_name}
             </Link>
           </li>
         ))}
